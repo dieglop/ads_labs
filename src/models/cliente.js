@@ -14,7 +14,7 @@ const Cliente = db.define('Cliente', {
         unique: true,
         allowNull: false,
         validate: {
-            is: /^\\d{3}[.]\\d{3}[.]\\d{3}[-]\\d{2}$/i,
+            is: /^\d{3}[.]\d{3}[.]\d{3}[-]\d{2}$/i,
         }
     }
 });

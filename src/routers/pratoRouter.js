@@ -8,6 +8,7 @@ pratoRouter.get('/', pratoController.listarTodosOsPratos);
 pratoRouter.get('/:id', pratoController.buscarPrato);
 pratoRouter.post('/cadastrar', 
     pratoMiddleware.nomeDoPratoObrigatorio,
+    pratoMiddleware.validarNomeDoPrato,
     pratoMiddleware.precoDoPratoObrigatorio,
     pratoMiddleware.validarFormatoPreco,
     pratoController.cadastrarPrato
