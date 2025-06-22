@@ -1,5 +1,5 @@
 const express = require('express');
-const clienteMiddleware = require('../middlewares/clienteMiddlewares');
+const clienteMiddleware = require('../middlewares/clienteMiddleware');
 const clienteController = require('../controllers/clienteController');
 
 const clienteRouter = express.Router();
@@ -12,7 +12,7 @@ clienteRouter.post('/cadastrar',
     clienteMiddleware.validarCPF,
     clienteController.cadastrarCliente
 );
-clienteRouter.put('/editar/:id', clienteController.editarCliente);
+clienteRouter.put('/editar/:id', clienteController.atualizarCliente);
 clienteRouter.delete('/remover/:id', clienteController.removerCliente);
 
 module.exports = clienteRouter;

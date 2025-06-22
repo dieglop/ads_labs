@@ -1,8 +1,3 @@
-/** *
-*@param {import('express').Request} req
-*@param {import('express').Response} res
-*/
-
 const clienteService = require('../services/clienteService');
 
 function cadastrarCliente(req, res){
@@ -22,7 +17,7 @@ function buscarCliente(req, res){
     .then((cliente) => {
         return res.send({Cliente: cliente});
     }, (error) => {
-        return res.status(500).send({message: error});
+        return res.status(404).send({message: error});
     })
 }
 
@@ -36,12 +31,12 @@ function listarTodosOsClientes(req, res){
 
 }
 
-function editarCliente(req, res){
-    clienteService.editarCliente(req.params.id, req.body)
+function atualizarCliente(req, res){
+    clienteService.atualizarCliente(req.params.id, req.body)
     .then((cliente) => {
         return res.send({Cliente: cliente});
     }, (error) => {
-        return res.status(400).send({message: error});
+        return res.status(404).send({message: error});
     });
 }
 
@@ -50,13 +45,13 @@ function removerCliente(req, res){
     .then((cliente) => {
         return res.send({Cliente: cliente});
     }, (error) => {
-        res.status(500).send({message: error});
+        res.status(404).send({message: error});
     });
 }
 
 module.exports = {
     cadastrarCliente,
-    editarCliente,
+    atualizarCliente,
     buscarCliente,
     listarTodosOsClientes,
     removerCliente

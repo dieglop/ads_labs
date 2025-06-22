@@ -19,7 +19,7 @@ async function listarTodosOsClientes(){
     return await cliente.findAll();
 }
 
-async function editarCliente(id, dados){
+async function atualizarCliente(id, dados){
     const clienteEncontrado = await cliente.findByPk(id);
 
     if(clienteEncontrado){
@@ -44,7 +44,7 @@ async function removerCliente(id){
 
 module.exports = {
     cadastrarCliente,
-    editarCliente,
+    atualizarCliente,
     buscarCliente,
     listarTodosOsClientes,
     removerCliente

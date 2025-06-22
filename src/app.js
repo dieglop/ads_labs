@@ -11,7 +11,7 @@ const PORT = 3000;
 app.use(express.json());
 
 app.use("/api/cliente", clienteRouter);
-//app.use("/api/prato", pratoRouter);
+app.use("/api/prato", pratoRouter);
 //app.use("/api/pedido", pedidoRouter);
 
 
