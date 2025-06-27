@@ -1,42 +1,65 @@
-const db = require('../database/database');
 const prato = require('../models/prato');
 
 
-
 async function cadastrarPrato(dados) {
-    const novoPrato = await prato.create(dados);
-    return novoPrato;
+    try {
+        const novoPrato = await prato.create(dados);
+        return novoPrato;
+
+    } catch (error) {
+        throw(error)
+    }
 }
 
 async function buscarPrato(id) {
-    const pratoEncontrado = await prato.findByPk(id);
-    return pratoEncontrado;
+    try {
+       const pratoEncontrado = await prato.findByPk(id);
+       return pratoEncontrado;
+        
+    } catch (error) {
+        throw(error)
+    }
 }
 
 async function listarTodosOsPratos() {
-    return await prato.findAll();
+    try {
+        return await prato.findAll();
+        
+    } catch (error) {
+        throw(error)
+    }
 }
 
 async function atualizarPrato(id, dados) {
-    const pratoEncontrado = await prato.findByPk(id);
-
-    if(pratoEncontrado){
-        pratoEncontrado.nome = dados.nome ?? pratoEncontrado.nome;
-        pratoEncontrado.preco = dados.preco ?? pratoEncontrado.preco;
-        await pratoEncontrado.save();
+    try {
+        const pratoEncontrado = await prato.findByPk(id);
+    
+        if(pratoEncontrado){
+            pratoEncontrado.nome = dados.nome ?? pratoEncontrado.nome;
+            pratoEncontrado.preco = dados.preco ?? pratoEncontrado.preco;
+            await pratoEncontrado.save();
+        }
+    
+        return pratoEncontrado;
+        
+    } catch (error) {
+        throw(error)
     }
-
-    return pratoEncontrado;
 }
 
 async function removerPrato(id) {
-    const pratoEncontrado = await prato.findByPk(id);
-
-    if(pratoEncontrado){
-        await pratoEncontrado.destroy();
+    try {
+        const pratoEncontrado = await prato.findByPk(id);
+    
+        if(pratoEncontrado){
+            await pratoEncontrado.destroy();
+        }
+    
+        return pratoEncontrado;
+        
+    } catch (error) {
+        throw(error)
     }
-
-    return pratoEncontrado;
 }
 
 module.exports = {

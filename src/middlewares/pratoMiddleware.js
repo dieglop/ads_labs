@@ -8,7 +8,7 @@ function nomeDoPratoObrigatorio(req, res, next){
 }
 
 function validarNomeDoPrato(req, res, next){
-    const padraoNome = /^[a-z]{3,50}$/i;
+    const padraoNome = /^[a-z\s]{3,50}$/i;
 
     if(req.body.nome && !padraoNome.test(req.body.nome)){
         return res.status(400).json({

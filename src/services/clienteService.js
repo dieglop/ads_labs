@@ -1,44 +1,66 @@
-const db = require('../database/database');
 const cliente = require('../models/cliente');
 
 
-
 async function cadastrarCliente(dados){
-    const novoCliente = await cliente.create(dados);
-    return novoCliente;
+    try {
+        const novoCliente = await cliente.create(dados);
+        return novoCliente;
+        
+    } catch (error) {
+        throw(error)
+    }
 }
 
 async function buscarCliente(id){
-    const clienteEncontrado = await cliente.findByPk(id);
-
-    return clienteEncontrado;
+    try {
+        const clienteEncontrado = await cliente.findByPk(id);
+    
+        return clienteEncontrado;
+        
+    } catch (error) {
+        throw (error)
+    }
 }
 
 async function listarTodosOsClientes(){
- 
-    return await cliente.findAll();
+    try {
+        return await cliente.findAll();
+        
+    } catch (error) {
+        throw(error)
+    }
 }
 
 async function atualizarCliente(id, dados){
-    const clienteEncontrado = await cliente.findByPk(id);
-
-    if(clienteEncontrado){
-        clienteEncontrado.nome = dados.nome ?? clienteEncontrado.nome;
-        clienteEncontrado.cpf = dados.cpf ?? clienteEncontrado.cpf;
-        await clienteEncontrado.save();
+    try {
+        const clienteEncontrado = await cliente.findByPk(id);
+    
+        if(clienteEncontrado){
+            clienteEncontrado.nome = dados.nome ?? clienteEncontrado.nome;
+            clienteEncontrado.cpf = dados.cpf ?? clienteEncontrado.cpf;
+            await clienteEncontrado.save();
+        }
+    
+        return clienteEncontrado;
+        
+    } catch (error) {
+        throw(error)
     }
-
-    return clienteEncontrado;
 }
 
 async function removerCliente(id){
-    const clienteEncontrado = await cliente.findByPk(id);
-
-    if(clienteEncontrado){
-        await clienteEncontrado.destroy();
+    try {
+        const clienteEncontrado = await cliente.findByPk(id);
+    
+        if(clienteEncontrado){
+            await clienteEncontrado.destroy();
+        }
+    
+        return clienteEncontrado;
+        
+    } catch (error) {
+        throw (error)
     }
-
-    return clienteEncontrado;
 }
 
 
