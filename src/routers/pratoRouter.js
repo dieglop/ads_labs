@@ -13,7 +13,7 @@ pratoRouter.post('/cadastrar',
     pratoMiddleware.validarFormatoPreco,
     pratoController.cadastrarPrato
 );
-pratoRouter.put('/editar/:id', pratoController.atualizarPrato);
-pratoRouter.delete('/remover/:id', pratoController.removerPrato);
+pratoRouter.put('/:id', pratoController.atualizarPrato);
+pratoRouter.delete('/:id', pratoController.removerPrato);
 
 module.exports = pratoRouter;

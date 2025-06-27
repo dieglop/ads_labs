@@ -101,7 +101,7 @@ async function atualizarPedido(idPedido, dados) {
         };
         
     } catch (error) {
-        throw
+        throw(error)
     }
 }
 

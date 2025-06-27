@@ -12,8 +12,8 @@ clienteRouter.post('/cadastrar',
     clienteMiddleware.validarCPF,
     clienteController.cadastrarCliente
 );
-clienteRouter.put('/editar/:id', clienteController.atualizarCliente);
-clienteRouter.delete('/remover/:id', clienteController.removerCliente);
+clienteRouter.put('/:id', clienteController.atualizarCliente);
+clienteRouter.delete('/:id', clienteController.removerCliente);
 
 module.exports = clienteRouter;
 

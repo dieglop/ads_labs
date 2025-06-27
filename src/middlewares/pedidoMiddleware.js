@@ -1,5 +1,5 @@
 function clienteObrigatorio(req, res, next){
-    if(!req.body.cliente){
+    if(!req.body.ClienteId){
         return res.status(400).json({
             message: "Informe o cliente"
         });
@@ -8,7 +8,7 @@ function clienteObrigatorio(req, res, next){
 }
 
 function pratoObrigatorio(req, res, next){
-    if(!req.body.prato){
+    if(!req.body.pratos){
         return res.status(400).json({
             message: "Informe o prato"
         });
