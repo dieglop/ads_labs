@@ -23,32 +23,14 @@ Esta é uma API RESTful desenvolvida em **Node.js**, utilizando **Express** e **
 - Node.js
 - Express
 - Sequelize ORM
-- SQLite (pode ser substituído por outro RDBMS)
+- Postgresql
 - Dotenv
-
----
-
-## ♻️ Instalação e Execução
-
-1. Instale as dependências:
-
-```bash
-npm install
-```
-
-2. Inicie o servidor:
-
-```bash
-node app.js
-```
-
-O servidor será iniciado na porta `3000` (ou a definida no `.env`).
 
 ---
 
 ## ⚖️ Estrutura de Rotas
 
-Todas as rotas estão agrupadas sob:
+As bases das rotas estão agrupadas em app.js sob:
 
 ```
 /api/cliente
@@ -201,28 +183,6 @@ Lista os clientes que mais gastaram (soma dos valores dos pedidos).
   }
 }
 ```
-
-### Erro (400 ou 500)
-
-```json
-{
-  "message": "O CPF é obrigatório"
-}
-
-{
-  "message": "Erro interno no servidor"
-}
-```
-
----
-
-## 📆 Autor
-
-Diego Lopes - Projeto de Restaurante com Node.js, Express e Sequelize.
-
----
-
-## 📅 Status do Projeto
 
 > 🌟 Concluído e funcional
 
