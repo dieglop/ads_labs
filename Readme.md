@@ -7,14 +7,12 @@ Esta é uma API RESTful desenvolvida em **Node.js**, utilizando **Express** e **
 ## 📄 Sumário
 
 - [Tecnologias Utilizadas](#tecnologias-utilizadas)
-- [Instalação e Execução](#instala%C3%A7%C3%A3o-e-execu%C3%A7%C3%A3o)
 - [Estrutura de Rotas](#estrutura-de-rotas)
   - [Clientes](#clientes)
   - [Pratos](#pratos)
   - [Pedidos](#pedidos)
   - [Relatórios](#relat%C3%B3rios)
 - [Validações](#valida%C3%A7%C3%B5es)
-- [Formato de Respostas](#formato-de-respostas)
 
 ---
 
@@ -168,23 +166,3 @@ Lista os clientes que mais gastaram (soma dos valores dos pedidos).
 - Ao menos um prato deve ser informado
 
 ---
-
-## 📃 Formato de Respostas
-
-### Sucesso (201 - Criação)
-
-```json
-{
-  "message": "Prato adicionado com sucesso!",
-  "Prato": {
-    "id": 5,
-    "nome": "Feijoada",
-    "preco": "39.90"
-  }
-}
-```
-
-> 🌟 Concluído e funcional
-
-Caso queira exportar para Swagger ou Postman, entre em contato. ✨
-
