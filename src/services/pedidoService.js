@@ -41,7 +41,7 @@ async function buscarPedido(idPedido) {
 
             include: [
                 { model: Cliente, attributes: ['nome'] },
-                { model: Prato, attributes: ['nome', 'preco'] }
+                { model: Prato, attributes: ['nome', 'preco'], through: {attributes: []}}
             ]        
         });
         return pedidoEncontrado;
@@ -107,13 +107,32 @@ async function atualizarPedido(idPedido, dados) {
 
 async function removerPedido(idPedido) {
     try {
-        const pedidoEncontrado = await Pedido.findByPk(idPedido);
-    
+        const pedidoEncontrado = await Pedido.findByPk(idPedido,{
+            include: [
+                {model: Cliente, attributes: ['nome']},
+                {model: Prato, attributes: ['nome', 'preco'], through: {attributes: []}}
+            ]
+        });
+
+        const pratos = await pedidoEncontrado.getPratos({
+            attributes: ['nome', 'preco'],
+            joinTableAttributes: []
+        });
+        
         if(pedidoEncontrado){
             await pedidoEncontrado.destroy();
         }
-    
-        return pedidoEncontrado;
+        
+       
+        return {
+            ClienteId: pedidoEncontrado.ClienteId,
+            nome: pedidoEncontrado.Cliente?.nome || 'Desconhecido',
+            total: pedidoEncontrado.total,
+            pratos: pratos.map(p => ({
+                nome: p.nome,
+                preco: Number(p.preco)
+            }))
+        }
         
     } catch (error) {
         throw(error)

@@ -9,6 +9,7 @@ clienteRouter.get('/:id', clienteController.buscarCliente);
 clienteRouter.post('/cadastrar', 
     clienteMiddleware.nomeObrigatorio,
     clienteMiddleware.cpfObrigatorio,
+    clienteMiddleware.formatoCPF,
     clienteMiddleware.validarCPF,
     clienteController.cadastrarCliente
 );
