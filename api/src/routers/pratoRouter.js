@@ -6,7 +6,7 @@ const pratoRouter = express.Router();
 
 pratoRouter.get('/', pratoController.listarTodosOsPratos);
 pratoRouter.get('/:id', pratoController.buscarPrato);
-pratoRouter.post('/cadastrar', 
+pratoRouter.post('/', 
     pratoMiddleware.nomeDoPratoObrigatorio,
     pratoMiddleware.validarNomeDoPrato,
     pratoMiddleware.precoDoPratoObrigatorio,

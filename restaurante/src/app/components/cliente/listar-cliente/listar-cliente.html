@@ -1,0 +1,13 @@
+<main class="conteudo principal">
+    <h1>Listagem de Clientes</h1>
+    <button (click) = "cadastrarCliente()">Cadastrar Cliente</button>
+    @for (cliente of clientes; track cliente.id) {
+        <div class="card">
+            <h3>{{ cliente.nome }}</h3>
+            <button (click) = "atualizarCliente(cliente)">Editar</button>
+            <button (click) = "removerCliente(cliente)">Remover</button>
+        </div>
+    } @empty {
+        <h3>Nenhuma pessoa na lista</h3>
+    }
+</main>

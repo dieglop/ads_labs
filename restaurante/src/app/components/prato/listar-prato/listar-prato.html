@@ -1,0 +1,16 @@
+<main>
+    <h1>Lista de Pratos</h1>
+
+    <button (click)="cadastrarPrato()">Cadastrar Prato</button>
+
+    @for (prato of pratos; track prato.id){
+        <div class="card">
+            <h3>Prato: {{ prato.nome }}</h3>
+            <h3>Preço: {{ prato.preco }}</h3>
+            <button (click) = "atualizarPrato(prato)">Editar</button>
+            <button (click) = "removerPrato(prato)">Remover</button>
+        </div>
+    } @empty {
+        <h3>Nenhum prato cadastrado</h3>
+    }
+</main>

@@ -1,0 +1,19 @@
+<h1>Cadastrar Cliente</h1>
+<form>
+  <div>
+    <label for="nome">Nome:</label>
+    <input type="text" 
+    [(ngModel)]="nome"
+    id="nome" 
+    name="nome" placeholder="Digite o nome do cliente">
+  </div>
+  
+  <div>
+    <label for="cpf">CPF:</label>
+    <input type="text" 
+    [(ngModel)]="cpf"
+    id="cpf" name="preco">
+  </div>
+  
+  <button type="submit" (click)="cadastrarCliente()">Cadastrar Cliente</button>
+</form>

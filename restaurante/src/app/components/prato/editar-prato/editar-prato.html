@@ -1,0 +1,23 @@
+<h1>Editar Prato</h1>
+<form>
+  <div>
+    <label for="nome">Nome:</label>
+    <input 
+    class="input"
+    [(ngModel)]="nome"
+    type="text" 
+    id="nome" 
+    name="nome" 
+    >
+  </div>
+  
+  <div>
+    <label for="preco">Preço: R$</label>
+    <input type="text" 
+     [(ngModel)]="preco"
+     id="preco" name="preco" 
+     step="0.01" placeholder="Ex: 99.99">
+  </div>
+  
+  <button type="submit" (click)="editarPrato()">Confirmar Alteração</button>
+</form>

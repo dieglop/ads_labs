@@ -1,0 +1,24 @@
+<h1>Editar Cliente</h1>
+<form>
+  <div>
+    <label for="nome">Nome:</label>
+    <input 
+    class="input"
+    [(ngModel)]="nome"
+    type="text" 
+    id="nome" 
+    name="nome" 
+    >
+  </div>
+  
+  <div>
+    <label for="cpf">CPF:</label>
+    <input type="text" 
+     [(ngModel)]="cpf"
+     id="cpf" name="cpf" 
+     >
+  </div>
+  
+  <button type="submit" (click)="editarCliente()">Confirmar Alteração</button>
+</form>
+

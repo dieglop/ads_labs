@@ -4,7 +4,7 @@ const pedidoController = require('../controllers/pedidoController');
 
 const pedidoRouter = express.Router();
 
-pedidoRouter.post('/cadastrar', 
+pedidoRouter.post('/', 
     pedidoMiddleware.clienteObrigatorio,
     pedidoMiddleware.pratoObrigatorio,
     pedidoController.cadastrarPedido

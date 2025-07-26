@@ -6,7 +6,7 @@ const clienteRouter = express.Router();
 
 clienteRouter.get('/', clienteController.listarTodosOsClientes);
 clienteRouter.get('/:id', clienteController.buscarCliente);
-clienteRouter.post('/cadastrar', 
+clienteRouter.post('/', 
     clienteMiddleware.nomeObrigatorio,
     clienteMiddleware.cpfObrigatorio,
     clienteMiddleware.formatoCPF,
