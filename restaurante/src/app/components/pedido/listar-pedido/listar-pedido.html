@@ -1,1 +1,14 @@
-<p>listar-pedido works!</p>
+<main class="conteudo principal">
+    <h1>Listagem de Pedidos</h1>
+    <button (click) = "cadastrarPedido()">Novo Pedido</button>
+    @for (pedido of pedidos; track pedido.id) {
+        <div class="card">
+            <h3>{{ pedido.id }}</h3>
+            <h3>{{ pedido.total }}</h3>
+            <button (click) = "atualizarPedido(pedido)">Editar</button>
+            <button (click) = "removerPedido(pedido)">Remover</button>
+        </div>
+    } @empty {
+        <h3>Nenhuma pessoa na lista</h3>
+    }
+</main>

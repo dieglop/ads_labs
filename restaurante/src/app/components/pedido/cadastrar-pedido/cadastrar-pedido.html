@@ -1,1 +1,35 @@
-<p>cadastrar-pedido works!</p>
+<h1>Novo Pedido</h1>
+
+@if (cliente) {
+  <h3>Cliente: {{ cliente.nome }}</h3>
+} @else {
+  <p>Cliente não encontrado.</p>
+}
+
+<h2>Pratos Disponíveis</h2>
+<div class="lista-pratos-disponiveis">
+  @for (prato of pratosDisponiveis; track prato.id) {
+    <div class="prato-card">
+      <span>{{ prato.nome }} - R$ {{ prato.preco | number:'1.2-2' }}</span>
+      <button (click)="adicionarPrato(prato)">Adicionar</button>
+    </div>
+  }
+</div>
+
+<h2>Pratos no Pedido</h2>
+<div class="lista-pratos-selecionados">
+  @if (pratosSelecionados.length > 0) {
+    @for (prato of pratosSelecionados; track prato.id) {
+      <div class="prato-card">
+        <span>{{ prato.nome }}</span>
+        <button (click)="removerPrato($index)">Remover</button>
+      </div>
+    }
+  } @else {
+    <p>Nenhum prato adicionado</p>
+  }
+</div>
+
+---
+
+<button (click)="cadastrarPedido()">Finalizar Pedido</button>

@@ -59,6 +59,11 @@ export class ListarCliente implements OnInit{
 
     }
 
+    novoPedido(cliente: Cliente){
+      this.clienteService.setClienteSelecionado(cliente);
+      this.router.navigate(['cadastrar-pedido', cliente.id]);
+    }
+
 }
 
 

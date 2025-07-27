@@ -6,6 +6,7 @@
             <h3>{{ cliente.nome }}</h3>
             <button (click) = "atualizarCliente(cliente)">Editar</button>
             <button (click) = "removerCliente(cliente)">Remover</button>
+            <button (click)="novoPedido(cliente)">Novo Pedido</button>
         </div>
     } @empty {
         <h3>Nenhuma pessoa na lista</h3>

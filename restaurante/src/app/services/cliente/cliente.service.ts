@@ -11,8 +11,8 @@ export class ClienteService {
   constructor (private httpClient: HttpClient){}
 
 
-  listarCliente(idCliente: number){
-      return this.httpClient.get(this.API_URL, { params: {clienteId: idCliente}})
+  buscarCliente(idCliente: number){
+      return this.httpClient.get(this.API_URL + '/' + idCliente);
   }
 
   listarClientes(){
